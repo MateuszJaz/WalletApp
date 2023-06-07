@@ -1,5 +1,4 @@
 .header__container {
-  /* display: flex; */
   padding: 20px auto;
   background-color: #ffffff;
 }
@@ -24,8 +23,8 @@
   display: flex;
   align-items: center;
 }
+
 .header__logoutUsername {
-  font-family: "Circe";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -33,6 +32,7 @@
   color: #bdbdbd;
   margin-right: 4px;
 }
+
 .header__logoutUsername::after {
   content: "\007c";
   margin-left: 8px;
@@ -65,8 +65,8 @@
   height: 18px;
   margin-right: 8px;
 }
+
 .logout__caption {
-  font-family: "Circe";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
