@@ -13,6 +13,8 @@
 .transactionTable th {
   padding: 16px 0px 16px 20px;
   text-align: left;
+  position: relative;
+  cursor: pointer;
 }
 
 .transactionTable th:first-child {
@@ -25,12 +27,27 @@
   border-bottom-right-radius: 30px;
 }
 
+.transactionTable .sortArrow {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: transform 0.6s ease;
+}
+
+.transactionTable th:active .sortArrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
 .transactionTable tr td {
   padding: 16px 0 14px 20px;
 }
 
 .transactionTable tbody tr {
-  border-bottom: 1px solid #DCDCDF;
+  border-bottom: 1px solid #dcdcdf;
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
 }
 

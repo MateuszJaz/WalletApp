@@ -40,10 +40,7 @@ export const ModalEditTransaction = () => {
       type: transactionToEdit.type,
       amount: event.target.amount.value,
       date: event.target.date.value,
-      category:
-        category !== "" && category !== "Income"
-          ? transactionToEdit.category
-          : category,
+      category: category !== "" && category !== "Income" ? category : "",
       comment: !event.target.comment.value ? " " : event.target.comment.value,
       owner: transactionToEdit.owner,
     };
@@ -59,7 +56,7 @@ export const ModalEditTransaction = () => {
     if (selectedCategory !== "Income") {
       setCategory(selectedCategory);
     } else {
-      setTransactionType(!transactionType);
+      setCategory("");
     }
   };
 
@@ -67,22 +64,19 @@ export const ModalEditTransaction = () => {
     <div
       id="overlay"
       className={style.overlay}
-      onClick={(event) => closeModal(event)}
-    >
+      onClick={(event) => closeModal(event)}>
       <div className={style.modal}>
         <h2 className={style.modal__title}>Edit transaction</h2>
         <form
           className={style.modal__form}
-          onSubmit={(event) => editTransaction(event)}
-        >
+          onSubmit={(event) => editTransaction(event)}>
           <div className={style.modal__switch}>
             <p
               className={
                 !transactionType
                   ? style.modal__switchFirstTextChecked
                   : style.modal__switchTextNotChecked
-              }
-            >
+              }>
               Income
             </p>
             <span className={style.switch}>/</span>
@@ -91,8 +85,7 @@ export const ModalEditTransaction = () => {
                 transactionType
                   ? style.modal__switchSecondTextChecked
                   : style.modal__switchTextNotChecked
-              }
-            >
+              }>
               Expense
             </p>
           </div>
@@ -104,8 +97,7 @@ export const ModalEditTransaction = () => {
                 <select
                   className={style.select}
                   onChange={categorySelection}
-                  defaultValue={transactionToEdit.category}
-                >
+                  defaultValue={transactionToEdit.category}>
                   {CATEGORY_NAME &&
                     Object.values(CATEGORY_NAME).map((element, index) => {
                       if (element === "Income") {
@@ -134,8 +126,7 @@ export const ModalEditTransaction = () => {
               step=".01"
               className={style.modal__input}
               defaultValue={transactionToEdit.amount}
-              required
-            ></input>
+              required></input>
             <Datetime
               className={style.modal__input}
               dateFormat="YYYY-MM-DD"
@@ -157,8 +148,7 @@ export const ModalEditTransaction = () => {
             className={style.modal__comment}
             defaultValue={
               transactionToEdit.comment === " " ? "" : transactionToEdit.comment
-            }
-          ></input>
+            }></input>
           <div className={style.modal__buttons}>
             <button type="submit" className={style.addBtn}>
               SAVE
@@ -171,8 +161,7 @@ export const ModalEditTransaction = () => {
         <img
           src={closeBtn}
           alt="Close Modal Button"
-          className={style.closeBtn}
-        ></img>
+          className={style.closeBtn}></img>
       </div>
     </div>
   );

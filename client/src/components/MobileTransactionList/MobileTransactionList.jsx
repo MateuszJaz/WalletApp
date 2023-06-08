@@ -31,8 +31,7 @@ const MobileTransactionList = () => {
           className={clsx(css.transactionGrid, {
             [css.income]: transaction.type,
             [css.expense]: !transaction.type,
-          })}
-        >
+          })}>
           {Object.keys(transaction).map((keyObj, index) => {
             const condition =
               keyObj === "__v" ||
@@ -48,8 +47,7 @@ const MobileTransactionList = () => {
                   className={clsx(css.text, {
                     [css.plus]: transaction.type && keyObj === "amount",
                     [css.minus]: !transaction.type && keyObj === "amount",
-                  })}
-                >
+                  })}>
                   {keyObj !== "date" && transaction[keyObj]}
                   {keyObj === "date" &&
                     new Date(transaction[keyObj]).toLocaleDateString()}
@@ -63,14 +61,12 @@ const MobileTransactionList = () => {
             <button
               className={css.btn}
               data-id={transaction._id}
-              onClick={handleDelete}
-            >
+              onClick={handleDelete}>
               Delete
             </button>
             <div
               className={css.wrapper}
-              onClick={() => handleOpenEditModal(transaction)}
-            >
+              onClick={() => handleOpenEditModal(transaction)}>
               <svg className={css.icon}>
                 <use xlinkHref={`${sprite}#pen`}></use>
               </svg>
